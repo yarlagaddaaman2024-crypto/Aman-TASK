@@ -76,6 +76,7 @@ def predict(X):
 y_pred = predict(X)
 
 EXPLANATION:-
+
 W-Weight tells how important an input is
 In model language:
 -Attendance weight = 0.2
@@ -128,41 +129,6 @@ sigmoid(1.2) ≈ 0.77
 Step 4: Final decision
 0.77 ≥ 0.5 → PASS (Class 1)
 
-CODE:-
-import numpy as nP
-
-# Sigmoid function
-def sigmoid(z):
-    return 1 / (1 + np.e(-z))
-
-# Dataset (Study Hours vs Pass/Fail)
-X = np.array([[1], [2], [3], [4], [5]])
-y = np.array([0, 0, 0, 1, 1])
-
-# Initialize parameters
-w = 0.0
-b = 0.0
-learning_rate = 0.1
-epochs = 1000
-
-# Training the model
-for _ in range(epochs):
-    z = w * X.flatten() + b
-    y_pred = sigmoid(z)
-
-    dw = np.mean((y_pred - y) * X.flatten())
-    db = np.mean(y_pred - y)
-
-    w -= learning_rate * dw
-    b -= learning_rate * db
-
-# Prediction function
-def predict(X):
-    z = w * X.flatten() + b
-    y_pred = sigmoid(z)
-    return [1 if i >= 0.5 else 0 for i in y_pred]
-
-y_pred = predict(X)
 
 Error simply means:
 
