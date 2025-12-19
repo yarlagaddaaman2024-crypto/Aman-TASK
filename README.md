@@ -77,35 +77,38 @@ y_pred = predict(X)
 
 EXPLANATION:-
 
-W-Weight tells how important an input is
+> W- Weight tells how important an input is
+
 In model language:
+
 -Attendance weight = 0.2
+
 -Study hours weight = 0.8
+
 -Study hours affect result more than attendance
 
-Multiply input with weight-
+> Multiply input with weight:-
 - attendance × weight
-  
-  Bias-b:-
+
+> Bias-b:-
   - Bias is a starting point or base value.
   - example:
 
 Teacher already thinks:
+
 “Most students pass”
+
 That thinking is bias.
 
-Sigmoid Function:-
+> Sigmoid Function:-
+
 Any number → between 0 and 1
-Before sigmoid:
 
-Output can be big number (like 10, -5, 3)
-
-After sigmoid:
-
-Output becomes probability
+Convertion in probability
 
 Example:
 -0.9 → 90% chance PASS
+
 -0.2 → 20% chance PASS
 
 - sigmoid(z) = 1 / (1 + e^-z)
@@ -113,48 +116,64 @@ Example:
 -   Complete working example:-
 
   Inputs:
+  
 -Attendance = 70%
+
 -Weight = 0.06
+
 -Bias = -3
 
 Step 1: Multiply
+
 70 × 0.06 = 4.2
 
 Step 2: Add bias
+
 4.2 - 3 = 1.2
 
 Step 3: Apply sigmoid
+
 sigmoid(1.2) ≈ 0.77
 
 Step 4: Final decision
+
 0.77 ≥ 0.5 → PASS (Class 1)
 
 
 Error simply means:
 
 -How wrong is our prediction
+
 -Error = Predicted value − Actual value
+
 -Error tells us how much to change weights and bias
 
 If error is:
 
 -Big → change weights more
+
 -Small → change weights slightly
 
 Updating weights and bias (Gradient Descent):-
 
 -Big word, simple meaning:
+
 -Gradient Descent = Learn from mistakes step by step
 
 Step 1: Find error
+
 Step 2: Update weight
+
 New weight = Old weight − (learning rate × error × input)
+
 Step 3: Update bias
+
 New bias = Old bias − (learning rate × error)
 
 IT WORKS LIKE THIS:-
 
 -If prediction is too small, weights increase
+
 -If prediction is too large, weights decrease
 
 So next prediction becomes closer to correct answer.
@@ -163,31 +182,42 @@ So next prediction becomes closer to correct answer.
 Evaluation Metrics:-
 
 -To evaluate the performance of the model, the following metrics are used:
+
 -Accuracy: Measures overall correctness of the model.
+
 -Precision: Measures how many predicted positive values are actually positive.
+
 -Recall: Measures how many actual positive values are correctly predicted.
+
 -F1-Score: Harmonic mean of precision and recall.
 
 y_true = y
+
 y_pred = predict(X)
 
 TP = sum((y_true == 1) & (np.array(y_pred) == 1))
+
 TN = sum((y_true == 0) & (np.array(y_pred) == 0))
+
 FP = sum((y_true == 0) & (np.array(y_pred) == 1))
+
 FN = sum((y_true == 1) & (np.array(y_pred) == 0))
 
 accuracy = (TP + TN) / len(y_true)
+
 precision = TP / (TP + FP + 1e-10)
+
 recall = TP / (TP + FN + 1e-10)
+
 f1 = 2 * precision * recall / (precision + recall + 1e-10)
 
 
 
-6. Result
+6. RESULT:-
 
 The logistic regression model was successfully implemented from scratch. The trained model was able to classify the given dataset correctly. The obtained accuracy, precision, recall, and F1-score indicate that the model performs well for the given binary classification problem.
 
 
-7. Conclusion
+7. CONCLUSION:-
 
 In this experiment, logistic regression was implemented without using any built-in machine learning libraries. The model was trained using gradient descent and evaluated using standard performance metrics. This experiment helped in understanding the internal working of logistic regression, including weight updates and probability-based classification. The results show that logistic regression is an effective algorithm for simple binary classification tasks.
